@@ -64,7 +64,7 @@ public class ElevatorSystem {
                     }
                 });
 
-        //If Someone waiting AND not free elevator - try wait and if elevator on the same floor and same destination UP or DOWN get in and set new longer destination
+        //2. If Someone waiting AND not free elevator - try wait and if elevator on the same floor and same destination UP or DOWN get in and set new longer destination
         elevators.forEach(elevator -> {
             if(elevator.getElevatorState() == ElevatorState.DELIVERING) {
 
@@ -73,7 +73,7 @@ public class ElevatorSystem {
                 while(iterator.hasNext()) {
                     Person firstPerson = iterator.next();
 
-                    //take parson if going the same direction down
+                    //take person if going the same direction down
                     if(elevator.isGoingDown() && firstPerson.isGoingDown()) {
                         if(firstPerson.destinationFloor() < elevator.getDestinationFloor()) {
                             //take to elevator
